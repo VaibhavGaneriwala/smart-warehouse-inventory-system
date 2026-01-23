@@ -56,7 +56,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(
     session({
         name: 'SWISSession',
-        secret: 'cs546-swis',
+        secret: 'warehouse-inventory-system',
         resave: false,
         saveUninitialized: false,
     })

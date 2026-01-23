@@ -34,7 +34,7 @@ The **Smart Warehouse Inventory System** provides tools to track inventory in re
 ## 📂 Project Structure
 
 ```
-CS546-SWIS/
+Smart Warehouse System/
 ├── config/
 │   ├── mongoCollections.js
 │   ├── mongoConnection.js
@@ -98,11 +98,11 @@ CS546-SWIS/
 ### 1. Clone the Repository
 
 ```
-git clone https://github.com/VaibhavGaneriwala/CS546-SWIS.git
+git clone https://github.com/VaibhavGaneriwala/warehouse-inventory-system.git
 ```
 
 ```
-cd CS546-SWIS/
+cd warehouse-inventory-system/
 ```
 
 ### 2. Install Dependencies

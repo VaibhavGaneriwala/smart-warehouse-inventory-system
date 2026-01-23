@@ -1,7 +1,7 @@
 {
-  "name": "cs546-swis",
+  "name": "warehouse-inventory-system",
   "version": "1.0.0",
-  "description": "This is final project for CS546 Web Programming",
+  "description": "A web application for managing warehouse inventory with auditing workflows and interactive dashboards.",
   "main": "app.js",
   "type": "module",
   "scripts": {
@@ -11,16 +11,8 @@
     "build": "npm install",
     "seed": "node seed.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/VaibhavGaneriwala/CS546-SWIS.git"
-  },
   "author": "Vaibhav Ganeriwala, Erik Bobinski, Neha Sutariya, Terynce Chan",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/VaibhavGaneriwala/CS546-SWIS/issues"
-  },
-  "homepage": "https://github.com/VaibhavGaneriwala/CS546-SWIS#readme",
   "dependencies": {
     "bcryptjs": "^3.0.2",
     "express": "^5.1.0",
