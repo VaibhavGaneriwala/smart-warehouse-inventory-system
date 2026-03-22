@@ -1,154 +1,114 @@
-# 📦 Smart Warehouse Inventory System
+# Smart Warehouse Inventory System
 
-A web-based application that helps warehouse managers monitor and control inventory levels with real-time visibility and intelligent automation.
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat&logo=nodedotjs&logoColor=white)
+![Express](https://img.shields.io/badge/Express.js-000000?style=flat&logo=express&logoColor=white)
+![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=flat&logo=mongodb&logoColor=white)
+![Chart.js](https://img.shields.io/badge/Chart.js-FF6384?style=flat&logo=chartdotjs&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)
 
-## 🚀 Project Overview
+A full-stack inventory management platform with real-time dashboards, low-stock alerting, batch audit workflows, and trend analytics — built with Node.js, Express, MongoDB, and Chart.js.
 
-The **Smart Warehouse Inventory System** provides tools to track inventory in real-time, audit stock discrepancies, and generate actionable insights through dashboards and predictive analytics. Built using MongoDB, Node.js, and plain HTML/CSS/JavaScript, it ensures a lightweight yet powerful solution.
+---
 
-## 🛠️ Tech Stack
+## Features
 
-- **Frontend:** HTML, CSS, JavaScript
-- **Backend:** Node.js
-- **Database:** MongoDB
-- **Real-Time Updates:** AJAX (Fetch API)
-- **Visualization:** Chart.js (for dashboards)
-- **Notifications:** JavaScript
+- **Real-time Dashboard** — Interactive Chart.js visualizations showing stock levels, category breakdowns, and inventory trends over time
+- **Item Management** — Full CRUD for inventory items with categorization, quantity tracking, and configurable low-stock thresholds
+- **Low-stock Alerts** — Automated notifications when items fall below configurable minimum quantities
+- **Audit Workflows** — Batch audit functionality with complete audit trail logging (who changed what, when)
+- **Trend Analytics** — Historical data visualization showing stock movement patterns and category-level insights
+- **Search & Filter** — Quick search across items with category and status filtering
 
-## 🌟 Core Features
+## Architecture
 
-- **Real-Time Inventory Tracking**
-  - Add/remove items dynamically with instant updates.
-- **Automated Inventory Auditing**
-  - Periodic checks to flag discrepancies between expected and actual stock levels.
-- **Interactive Dashboards**
-  - Visualize stock levels, turnover rates, and trends.
+```mermaid
+graph TD
+    Browser["Browser"]
+    Frontend["Frontend<br/><small>HTML/CSS/JS + Chart.js</small>"]
+    API["Express API<br/><small>Node.js REST endpoints</small>"]
+    MongoDB[("MongoDB<br/><small>Inventory + Audit data</small>")]
 
-## 🔮 Extra Features
+    Browser --> Frontend
+    Frontend -->|"REST API calls"| API
+    API -->|"Mongoose ODM"| MongoDB
 
-- **Predictive Restocking**
-  - Suggests restocking based on historical usage data.
-- **Automated Notifications**
-  - Sends alerts when stock hits critical thresholds.
-
-## 📂 Project Structure
-
-```
-Smart Warehouse System/
-├── config/
-│   ├── mongoCollections.js
-│   ├── mongoConnection.js
-│   └── settings.js
-├── data/
-│   ├── auditController.js
-│   ├── dashboardController.js
-│   ├── inventoryController.js
-│   ├── logController.js
-│   ├── reportController.js
-│   └── userController.js
-├── middlewares/
-│   └── auth.js
-├── public/
-│   ├── css/
-│   │   ├── dashboard.css
-│   │   ├── inventory.css
-│   │   ├── login.css
-│   │   ├── logs.css
-│   │   ├── main.css
-│   │   ├── register.css
-│   │   ├── reports.css
-│   │   └── settings.css
-│   ├── images/
-│   │   └── swisLogo.png
-│   └── js/
-│       ├── main.js
-│       └── dashboard.js
-├── routes/
-│   ├── auditRoutes.js
-│   ├── dashboard.js
-│   ├── index.js
-│   ├── inventory.js
-│   ├── reports.js
-│   ├── settings.js
-│   └── users.js
-├── utils/
-│   └── validations.js
-├── views/
-│   ├── layouts/
-│   │   └── main.handlebars
-│   ├── dashboard.handlebars
-│   ├── error.handlebars
-│   ├── inventory-admin.handlebars
-│   ├── inventory-user.handlebars
-│   ├── login.handlebars
-│   ├── register.handlebars
-│   ├── reports.handlebars
-│   └── settings.handlebars
-├── .gitignore
-├── app.js
-├── LICENSE
-├── package.json
-├── package-lock.json
-├── README.md
-└── seed.js
+    style Frontend fill:#dbeafe,stroke:#3b82f6,color:#1e3a5f
+    style API fill:#d1fae5,stroke:#10b981,color:#064e3b
+    style MongoDB fill:#ede9fe,stroke:#8b5cf6,color:#3b0764
+    style Browser fill:#f3f4f6,stroke:#9ca3af,color:#374151
 ```
 
-## ⚙️ Setup Instructions
+## Tech Stack
 
-### 1. Clone the Repository
+| Layer | Technology |
+|-------|-----------|
+| **Backend** | Node.js, Express.js |
+| **Database** | MongoDB (Mongoose ODM) |
+| **Frontend** | HTML, CSS, JavaScript |
+| **Charts** | Chart.js |
+| **Auth** | Session-based authentication |
 
-```
-git clone https://github.com/VaibhavGaneriwala/warehouse-inventory-system.git
-```
+## Getting Started
 
-```
-cd warehouse-inventory-system/
-```
+### Prerequisites
 
-### 2. Install Dependencies
+- Node.js v16+
+- MongoDB (local or MongoDB Atlas)
 
-```
+### Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/VaibhavGaneriwala/smart-warehouse-inventory-system.git
+cd smart-warehouse-inventory-system
+
+# Install dependencies
 npm install
-```
 
-### 3. Seed the database with seed file
+# Configure environment
+cp .env.example .env
+# Edit .env with your MongoDB URI and other settings
 
-```
+# Seed sample data (optional)
 npm run seed
-```
 
-### 4. Run the Application
-
-```
+# Start the server
 npm start
 ```
 
-Visit `http://localhost:3000` in your browser.
+The app will be available at `http://localhost:3000`
 
-### 5. Username and Password to test the program.
+## API Endpoints
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/api/items` | List all inventory items |
+| POST | `/api/items` | Add a new item |
+| PUT | `/api/items/:id` | Update an existing item |
+| DELETE | `/api/items/:id` | Remove an item |
+| GET | `/api/items/low-stock` | Get items below threshold |
+| GET | `/api/audits` | Get audit trail logs |
+| POST | `/api/audits` | Create a batch audit |
+| GET | `/api/dashboard/stats` | Dashboard summary data |
+
+## Project Structure
+
 ```
-Admin:
-Username: lego
-Password: Password@1
-
-User:
-Username: superman
-Password: Superman@1
+smart-warehouse-inventory-system/
+├── config/          # Database & app configuration
+├── data/            # Seed data files
+├── middleware/       # Auth & request middleware
+├── models/          # Mongoose schemas (Item, Audit, User)
+├── public/          # Static assets (CSS, JS, Chart.js)
+├── routes/          # Express route handlers
+├── views/           # Server-rendered views
+├── .env.example     # Environment variable template
+├── package.json
+└── server.js        # Application entry point
 ```
 
-## 📈 Future Improvements
+## License
 
-- Enhancing Automation
-- Advanced Reporting & Analytics
-- Integration with Other Systems
+MIT
 
-## 🤝 Contributors
-
-- Vaibhav Ganeriwala
-- Erik Bobinski
-- Neha Sutariya
-- Terynce Chan
-
-## 📄 License
-
-This project is licensed under the [MIT License](LICENSE).
+---
